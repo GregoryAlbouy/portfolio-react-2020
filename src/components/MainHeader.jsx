@@ -17,11 +17,11 @@ const MainHeader = () => (
       </p>
       <ul>
         <li>
-          <span role="img" aria-label="jsx-a11y/accessible-emoji">📄</span>
+          <span role="img" aria-label="jsx-a11y/accessible-emoji">📄</span>&nbsp;
           Have a look at <strong><a href="https://gregoryalbouy.com/cv" title="my CV" target="_blank" rel="noopener noreferrer">my CV</a></strong>
         </li>
         <li>
-          <span role="img" aria-label="jsx-a11y/accessible-emoji">⬇️</span>
+          <span role="img" aria-label="jsx-a11y/accessible-emoji">⬇️</span>&nbsp;
           Check out my work below
         </li>
       </ul>
