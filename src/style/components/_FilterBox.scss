@@ -1,0 +1,13 @@
+.c-filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: var(--content-width);
+  padding: 0;
+  margin: auto;
+  list-style: none;
+
+  li {
+    margin: .4rem;
+  }
+}

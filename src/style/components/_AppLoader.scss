@@ -1,0 +1,66 @@
+@use '../utils' as mix;
+@use '../animations' as anim;
+
+.c-app-loader {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background: var(--page-background-color);
+  transition: opacity 1s;
+    
+  &.fade-out {
+    opacity: 0;
+  }
+    
+  .container {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 5rem);
+  }
+    
+  .loader {
+    $size: 10rem;
+    position: relative;
+    width: $size;
+    height: $size;
+    margin: auto;
+  }
+    
+  .outer {
+    @include mix.loader-layer(10rem, 'right');
+  }
+  
+  .inner {
+    @include mix.loader-layer(6rem, 'left')
+  }
+    
+  .messages {
+    padding: 0;
+    list-style: none;
+    font-size: 1.8rem;
+    text-align: center;
+  
+    li {
+      margin-bottom: 1rem;
+    }
+  
+    @for $i from 1 through 3 {
+      $duration: .6s;
+      $delay: ($i - 1) * $duration / 3;
+
+      li:nth-of-type(#{$i}n) span {
+          animation: anim.breathe($duration, $delay);
+      }
+    }
+  }
+    
+  .vanish {
+    opacity: 0;
+    transform: translateX(10rem);
+    transition: opacity .4s, transform .4s;
+  }
+}

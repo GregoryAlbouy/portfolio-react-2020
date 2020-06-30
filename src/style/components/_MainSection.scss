@@ -1,0 +1,45 @@
+.c-main-section {
+  display: block;
+  padding: 4rem 0;
+
+  &.dark {
+    background: rgba(0, 0, 0, .2);
+
+    > h2 {
+      color: rgba(200, 200, 255, .1);
+    }
+  }
+
+  &.full-height {
+    min-height: 100vh;
+  }
+
+  > h2 {
+    position: relative;
+    width: var(--content-width);
+    margin-top: 0;
+    margin-bottom: 4rem;
+    margin-left: 10%;
+    font-family: 'Big Shoulders Display';
+    color: rgba(255, 255, 255, .1);
+    font-size: 8rem;
+    text-transform: uppercase;
+    box-sizing: border-box;
+
+    &::before {
+      content: ".";
+      display: block;
+      position: absolute;
+      right: 100%;
+      color: inherit;
+      font-size: inherit;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .c-main-section > h2 {
+      width: 100%;
+      margin-left: 4rem;
+  }
+}

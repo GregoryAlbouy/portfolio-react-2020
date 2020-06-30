@@ -1,0 +1,36 @@
+@use '../animations' as anim;
+
+@mixin absolute-center($n) {
+  position: absolute;
+  top: calc(50% - #{$n / 2});
+  left: calc(50% - #{$n / 2});
+}
+
+@mixin loader-layer($size: 10rem, $direction: 'right') {
+  $rotation: anim.rotate-right(1s);
+
+  @if $direction == 'left' {
+    $rotation: anim.rotate-left(1s);
+  }
+
+  width: $size;
+  height: $size;
+  border: 1rem solid var(--main-color);
+  border-radius: 50%;
+  animation: anim.breathe(.4s), $rotation;
+
+  @include absolute-center($size);
+
+  &::before {
+    $w: $size / 2;
+    $h: $size + 2rem;
+
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: calc(50% - #{$w / 2});
+    width: $w;
+    height: $size;
+    background: var(--page-background-color);
+  }
+}

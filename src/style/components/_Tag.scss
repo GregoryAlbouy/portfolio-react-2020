@@ -1,0 +1,12 @@
+.c-tag {
+    display: inline-block;
+    padding: .6rem 1.2rem;
+    margin: .2rem;
+    border: 1px solid currentColor;
+    border-radius: 2rem;
+    background: var(--page-background-color);
+    color: var(--main-color);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}

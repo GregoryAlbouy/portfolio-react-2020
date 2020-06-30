@@ -1,0 +1,36 @@
+.c-main-header {
+  width: var(--content-width);
+  padding: 4rem 0;
+  margin: auto;
+
+  > *:not(:last-child) {
+    margin: 0 0 2rem 0;
+  }
+
+  h1 {
+    font-size: 6rem;
+    font-family: "Big Shoulders Display";
+    text-transform: uppercase;
+
+    > span {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  .subtitle {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, .4);
+  }
+
+  > p {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .c-main-header {
+    width: auto;
+    padding: 4rem;
+  }
+}

@@ -1,0 +1,66 @@
+@use './style';
+
+:root {
+  --page-background-color: #181822;
+  --text-color: #CCC;
+  --main-color: #0FE;
+  --content-width: 120rem;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #181822;
+  color: var(--text-color);
+  font-family: 'Raleway';
+  font-weight: 200;
+}
+
+a {
+  &:visited {
+    color: inherit;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+@media (max-width: 1600px) {
+  :root {
+      --content-width: 90rem;
+  }
+}
+
+@media (max-width: 960px) {
+  :root {
+      --content-width: 60rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+      --content-width: 30rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 9px;
+  }
+}

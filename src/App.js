@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import {
+  AppLoader,
+  MainPage
+} from './components';
+import { getProjectsData } from './services/projects';
+import { Utils } from './utils'
 
-function App() {
+const App = () => {
+  const loadApp = async () => {
+    const tasks = [
+      getProjectsData(),
+      Utils.pause(1000)
+    ]
+
+    const projectsData = (await Promise.all(tasks))[0];
+
+    setProjectsData(projectsData);
+    setIsLoading(false);
+  };
+
+  const dismissLoader = () => {
+    setTimeout(() => {
+      setIsLoaderReadyForRemove(false)
+    }, 1000);
+  }
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaderReadyForRemove, setIsLoaderReadyForRemove] = useState(true);
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    loadApp();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) dismissLoader()
+  }, [isLoading])
+  
+  // return isLoading ? <AppLoader /> : <MainPage projectsData={projectsData} />
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      {isLoaderReadyForRemove ? <AppLoader className={isLoading ? '' : 'fade-out'} /> : ''}
+      
+      <MainPage projectsData={projectsData} />
+    </>
+  )
+};
 
 export default App;
